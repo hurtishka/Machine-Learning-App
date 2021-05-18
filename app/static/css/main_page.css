@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@383&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 383;
+    font-size: large;
+}
+
+section {
+    height: 100vh;
+}
+
+.collapse {
+    justify-content: flex-end;
+}
+
+
+/*WELCOME*/
+#welcome {
+    background-color: #00631C;
+}
+#content-welcome {
+    padding-top: 3rem;
+    text-align: center;
+}
+.title-wl {
+    color: white;
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+.description-wl {
+    max-width: 60rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color: white;
+    margin:0 auto;
+}
+/*ABOUT*/
+#about {
+    background: white;
+    text-align: center;
+}
+.title-ab {
+    margin-top: 2rem;
+    color: black;
+    font-size: 6rem;
+    font-weight: 900;
+}
+.title-small {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.description-ab {
+    max-width: 70rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color: black;
+    margin: 2rem auto 5rem auto;
+}
+.row {
+    margin-top: 3rem;
+}
+/*SOCIAL*/
+
+footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    background-color: #00631C;
+    height:40vh;
+}
+
+.social {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+.social-media-icon {
+    margin-left: 1rem;
+}
+
+#copyright {
+    padding-bottom: 3rem;
+}
+
+/*ALGO*/
+#algo {
+    background-color: #fff;
+}
+
+#content-algo {
+    padding-top: 3rem;
+    text-align: center;
+    color:black;
+}
+.title-al {
+    color: black;
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+.description-al {
+    max-width: 60rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color: black;
+    margin:0 auto;
+}
+/**/
+#classif_train {
+    background-color: #00631C;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25vh;
+    padding-bottom: .5rem;
+    text-align: left;
+}
+.title-ct {
+    color: white;
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+.description-ct {
+    max-width: 40rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color:white;
+    
+}

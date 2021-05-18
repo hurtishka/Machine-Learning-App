@@ -1,11 +1,119 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WELCOME TO MACHINE-LEARNING APP</title>
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="static/css/main_page.css">
+{% endblock %}
+
+{% block body %}
+<section id="welcome">
+    <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="">
+                    <img src="/static/img/logo_new.png" alt="" class="d-inline-block align-text-center">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">О проекте</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="algorithms">Алгоритмы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="classification_train">Классификация и обучение</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div id="content-welcome">
+            <div class="row align-items-center">
+                <div class="col-12 justify-content-center">
+                    <img src="../static/img/gummy-programming.png" alt="" width="400" height="200" id="image-welcome" class="img-fluid mx-auto">
+                </div>
+                <div class="col-12 text-center" style="padding: 0;">
+                    <p class="title-wl">MachineLearningApp</p>
+                    <p class="description-wl">Классификация сетевого трафика с использованием методов машинного обучения с учителем</p>
+                    <a href="#about"><button type="button" class="btn btn-success btn-lg">Подробнее</button></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="about">
+    <div class="container">
+        <p class="title-ab">О проекте</p>
+        <p class="description-ab">Программное обеспечение для классификации сетевого трафика,
+                разработанное в рамках выпускной квалификационой работы бакалавра по направлению
+                "Программная инженерия" в Южно-Уральском государственном университете
+        </p>
+        <div class="row">
+            
+            <div class="col align-self-start">
+                <p class="title-small">Название фишки</p>
+                Одна из трёх колонок
+            </div>
+            <div class="col align-self-center">
+                <p class="title-small">Название фишки</p>
+                Одна из трёх колонок
+            </div>
+            <div class="col align-self-end">
+                <p class="title-small">Название фишки</p>
+                Одна из трёх колонок
+            </div>
+        </div>
+      </div>
+</section>
+
+<section id="classif_train">
+    <div class="container">
+        <div class="content">
+            <div class=info>
+                <p class="title-ct">Классификация и обучение</p>
+                <p class="description-ct">Вы можете почувствовать себя в роли настоящего профессионала по machine learning</p>
+                <a href="classification_train"><button type="button" class="btn btn-success btn-lg">Попробовать</button></a>
+            </div>
+            <img src="../static/img/Startup_PNG.png" alt="" width="380" height="180" class="img-fluid rounded float-start">
+        </div>
+    </div>
+</section>
+
+<section id="algo">
+    <div class="container" id="content-algo">
+        <div class="row align-items-center">
+            <div class="col-12 justify-content-center">
+                <img src="../static/img/Coding_PNG.png" alt="" width="240" height="100" id="image-welcome" class="img-fluid mx-auto">
+            </div>
+            <div class="col-12 text-center" style="padding: 0;">
+                <p class="title-al">Алгоритмы</p>
+                <p class="description-al">Вы можете ознакомиться с классическими алгоритмами машинного обучения, которые описаны и иллюстрированы простым языком</p>
+                <a href="algorithms"><button type="button" class="btn btn-success btn-lg">Узнать больше</button></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="social">
+            <img src="/static/img/GitHub.png" alt="" width="50" height="50" id="github" class="social-media-icon">
+            <img src="/static/img/Instagram.png" alt="" width="50" height="50" id="instagram" class="social-media-icon">
+            <img src="/static/img/VK.png" alt="" width="40" height="40" id="vkontakte" class="social-media-icon">
+            <img src="/static/img/TwitterSquared.png" alt="" width="48" height="48" id="facebook" class="social-media-icon">
+        </div>
+        <p id="phone" class="footer-text">Тел.: +7 (982) 105 37-63</p>
+        <p id="email" class="footer-text">Email: nazarenko674777@gmail.com</p>
+        <p id="copyright" class="footer-text">© 2020-2021, Evgenii Nazarenko</p>
+    </div>
+</footer>
+{% endblock %}
