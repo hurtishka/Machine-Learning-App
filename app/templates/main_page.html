@@ -4,8 +4,9 @@
 {% block head %}
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WELCOME TO MACHINE-LEARNING APP</title>
+<title>WELCOME TO MACHINE LEARNING APP</title>
 <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="static/css/main_page.css">
 {% endblock %}
 
@@ -58,7 +59,6 @@
                 "Программная инженерия" в Южно-Уральском государственном университете
         </p>
         <div class="row">
-            
             <div class="col align-self-start">
                 <p class="title-small">Название фишки</p>
                 Одна из трёх колонок
@@ -105,15 +105,14 @@
 
 <footer>
     <div class="container">
-        <div class="social">
-            <img src="/static/img/GitHub.png" alt="" width="50" height="50" id="github" class="social-media-icon">
-            <img src="/static/img/Instagram.png" alt="" width="50" height="50" id="instagram" class="social-media-icon">
-            <img src="/static/img/VK.png" alt="" width="40" height="40" id="vkontakte" class="social-media-icon">
-            <img src="/static/img/TwitterSquared.png" alt="" width="48" height="48" id="facebook" class="social-media-icon">
-        </div>
+        <ul class="social-icons">
+            <li><a href="https://vk.com/nazevg"><i class="fa fa-vk"></i></a></li>
+            <li><a href="https://www.instagram.com/nazevg/"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://github.com/hurtishka"><i class="fa fa-github"></i></a></li>
+        </ul>
         <p id="phone" class="footer-text">Тел.: +7 (982) 105 37-63</p>
         <p id="email" class="footer-text">Email: nazarenko674777@gmail.com</p>
-        <p id="copyright" class="footer-text">© 2020-2021, Evgenii Nazarenko</p>
+        <p id="copyright" class="footer-text">© 2021, Evgenii Nazarenko</p>
     </div>
 </footer>
 {% endblock %}

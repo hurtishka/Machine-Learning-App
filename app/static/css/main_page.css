@@ -76,7 +76,7 @@ section {
 .row {
     margin-top: 3rem;
 }
-/*SOCIAL*/
+/*FOOTER*/
 
 footer {
     text-align: center;
@@ -84,16 +84,59 @@ footer {
     background-color: #00631C;
     height:40vh;
 }
-
-.social {
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 2rem;
     padding-top: 3rem;
-    padding-bottom: 3rem;
 }
-
-.social-media-icon {
-    margin-left: 1rem;
+.social-icons a {
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    background: #efefef;
+    position: relative;
+    margin: 0.5rem;
+    text-align: center;
+    font-size: 3.2rem;
+    color: #337AB7;
+    transition: 0.5s;
 }
-
+.social-icons a img {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-top: 1.4rem;
+}
+.social-icons a i,
+.social-icons a img {
+    z-index:2;
+    position: relative;
+    line-height: 6rem;
+}
+.social-icons a:hover {
+    color: #fff;
+}
+.social-icons a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: #BFE2FF;
+    border-radius: 100%;
+    width: 0;
+    height: 0;
+    transition: 0.3s;
+    top: 0;
+    left: 50%;
+}
+.social-icons a:hover:after {
+    width: 6rem;
+    height: 6rem;
+    margin-left: -3rem;
+    background: #337AB7;
+}
 #copyright {
     padding-bottom: 3rem;
 }

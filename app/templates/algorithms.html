@@ -1,11 +1,179 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MACH</title>
-</head>
-<body>
-    
-</body>
-</html>
+{% import "bootstrap/wtf.html" as wtf %}
+{% extends 'bootstrap/base.html' %}
+
+{% block head %}
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MACHINE LEARNING ALGORITHMS</title>
+<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="static/css/algorithms.css">
+{% endblock %}
+
+{% block body %}
+<section id="welcome">
+    <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="">
+                    <img src="/static/img/logo_new.png" alt="" class="d-inline-block align-text-center">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">На главную</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="algorithms">Алгоритмы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="classification_train">Классификация и обучение</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+</section>
+
+<section id="algorithm">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 align-self-start">
+                <p class="title-dt">Decision Tree — Дерево принятия решений</p>
+                <div class="description-dt">
+                    <p style="text-indent: 2rem;">Дерево принятия решений – это классификатор, построенный на основе решающих правил вида «если...то...», упорядоченных в древовидную иерархическую структуру. В основе работы дерева решений лежит процесс рекурсивного разбиения исходного множества объектов на подмножества, ассоциированные с предварительно заданными классами.</p> 
+                    <p style="text-indent: 2rem;">Разбиение производится с помощью решающих правил, в которых осуществляется проверка значений атрибутов по заданному условию. В качестве обучающего набора данных используется множество наблюдений, для которых предварительно задана метка класса.</p>
+                    <p style="text-indent: 2rem;">Дерево решений состоит из узлов (node), ветвей (branch) и листьев (leaf). В вершине дерева находится корневой узел, содержащий входные данные, с которого начинается построение. Далее идут внутренние узлы, каждый из которых имеет только одну входящую в него ветвь. В этих узлах осуществляется разделение входных значений на подмножества, называемые классами, в соответствии с их атрибутами. В ветвях хранятся значения атрибутов, по которым разбиваются данные. Лист представляет собой узел решения о принадлежности к классу.</p> 
+                    <p style="text-indent: 2rem;">Процесс разбиения продолжается до тех пор, пока не будет достигнут необходимый результат расщепления или критерий остановки.</p>
+                </div>
+            </div>
+            <div class="col-5 align-self-center">
+                <img src="../static/img/DT.png" alt=""  class="img-fluid">
+            </div>
+        </div>
+        <div class="row text-center">
+            <hr width="100%" size="3" color="#000000"/>
+            <div class="col-6 align-self-center">
+                <p class="title-small">Плюсы</p>
+                
+            </div>
+            <div class="col-6 align-self-center">
+                <p class="title-small">Минусы</p>
+                
+            </div>
+            <hr width="100%" size="3" color="#000000"/>
+        </div>
+    </div>
+</section>
+
+<section id="algorithm">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 align-self-start">
+                <p class="title-dt">kNearestNeighbors — k-ближайших соседей</p>
+                <div class="description-dt">
+                    <p style="text-indent: 2rem;">Дерево принятий решений – это классификатор, построенный на основе решающих правил вида «если...то...», упорядоченных в древовидную иерархическую структуру. В основе работы дерева решений лежит процесс рекурсивного разбиения исходного множества объектов на подмножества, ассоциированные с предварительно заданными классами.</p> 
+                    <p style="text-indent: 2rem;">Разбиение производится с помощью решающих правил, в которых осуществляется проверка значений атрибутов по заданному условию. В качестве обучающего набора данных используется множество наблюдений, для которых предварительно задана метка класса.</p>
+                    <p style="text-indent: 2rem;">Дерево решений состоит из узлов (node), ветвей (branch) и листьев (leaf). В вершине дерева находится корневой узел, содержащий входные данные, с которого начинается построение. Далее идут внутренние узлы, каждый из которых имеет только одну входящую в него ветвь. В этих узлах осуществляется разделение входных значений на подмножества, называемые классами, в соответствии с их атрибутами. В ветвях хранятся значения атрибутов, по которым разбиваются данные. Лист представляет собой узел решения о принадлежности к классу.</p> 
+                    <p style="text-indent: 2rem;">Процесс разбиения продолжается до тех пор, пока не будет достигнут необходимый результат расщепления или критерий остановки.</p>
+                </div>
+            </div>
+            <div class="col-5 align-self-center">
+                <img src="../static/img/kNN.png" alt=""  class="img-fluid">
+            </div>
+        </div>
+        <div class="row text-center">
+            <hr width="100%" size="3" color="#000000"/>
+            <div class="col-6 align-self-center">
+                <p class="title-small">Плюсы</p>
+                    <p style="text-indent: 2rem;">Алгоритм прост и его легко понять</p>
+                    <p style="text-indent: 2rem;">Тривиальное обучение модели на новых тренировочных данных</p>
+                    <p style="text-indent: 2rem;">Работает с любым количеством категорий в задаче классификации</p>
+                    <p style="text-indent: 2rem;">Легко добавить больше данных в множество данных</p>
+                    <p style="text-indent: 2rem;">Модель принимает только 2 параметра: К и метрика расстояния, которой вы хотели бы воспользоваться (обычно это Евклидово расстояние)</p>
+            </div>
+            <div class="col-6 align-self-center">
+                <p class="title-small">Минусы</p>
+                    <p style="text-indent: 2rem;">Высокая стоимость вычисления, т.к. вам требуется обработать весь объем данных</p>
+                    <p style="text-indent: 2rem;">Работает не так хорошо с категорическими параметрами</p>
+            </div>
+            <hr width="100%" size="3" color="#000000"/>
+        </div>
+    </div>
+</section>
+
+<section id="algorithm">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 align-self-start">
+                <p class="title-dt">Naive Bayes — Наивный байесовский классификатор</p>
+                <div class="description-dt">
+                    <p style="text-indent: 2rem;">Дерево принятий решений – это классификатор, построенный на основе решающих правил вида «если...то...», упорядоченных в древовидную иерархическую структуру. В основе работы дерева решений лежит процесс рекурсивного разбиения исходного множества объектов на подмножества, ассоциированные с предварительно заданными классами.</p> 
+                    <p style="text-indent: 2rem;">Разбиение производится с помощью решающих правил, в которых осуществляется проверка значений атрибутов по заданному условию. В качестве обучающего набора данных используется множество наблюдений, для которых предварительно задана метка класса.</p>
+                    <p style="text-indent: 2rem;">Дерево решений состоит из узлов (node), ветвей (branch) и листьев (leaf). В вершине дерева находится корневой узел, содержащий входные данные, с которого начинается построение. Далее идут внутренние узлы, каждый из которых имеет только одну входящую в него ветвь. В этих узлах осуществляется разделение входных значений на подмножества, называемые классами, в соответствии с их атрибутами. В ветвях хранятся значения атрибутов, по которым разбиваются данные. Лист представляет собой узел решения о принадлежности к классу.</p> 
+                    <p style="text-indent: 2rem;">Процесс разбиения продолжается до тех пор, пока не будет достигнут необходимый результат расщепления или критерий остановки.</p>
+                </div>
+            </div>
+            <div class="col-5 align-self-center">
+                <img src="../static/img/DT.png" alt=""  class="img-fluid">
+            </div>
+        </div>
+        <hr width="100%" size="3" color="#000000" />
+    </div>
+</section>
+
+<section id="algorithm">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 align-self-start">
+                <p class="title-dt">Support Vector Machine — Машина опорных векторов</p>
+                <div class="description-dt">
+                    <p style="text-indent: 2rem;">Дерево принятий решений – это классификатор, построенный на основе решающих правил вида «если...то...», упорядоченных в древовидную иерархическую структуру. В основе работы дерева решений лежит процесс рекурсивного разбиения исходного множества объектов на подмножества, ассоциированные с предварительно заданными классами.</p> 
+                    <p style="text-indent: 2rem;">Разбиение производится с помощью решающих правил, в которых осуществляется проверка значений атрибутов по заданному условию. В качестве обучающего набора данных используется множество наблюдений, для которых предварительно задана метка класса.</p>
+                    <p style="text-indent: 2rem;">Дерево решений состоит из узлов (node), ветвей (branch) и листьев (leaf). В вершине дерева находится корневой узел, содержащий входные данные, с которого начинается построение. Далее идут внутренние узлы, каждый из которых имеет только одну входящую в него ветвь. В этих узлах осуществляется разделение входных значений на подмножества, называемые классами, в соответствии с их атрибутами. В ветвях хранятся значения атрибутов, по которым разбиваются данные. Лист представляет собой узел решения о принадлежности к классу.</p> 
+                    <p style="text-indent: 2rem;">Процесс разбиения продолжается до тех пор, пока не будет достигнут необходимый результат расщепления или критерий остановки.</p>
+                </div>
+            </div>
+            <div class="col-5 align-self-center">
+                <img src="../static/img/SVm.png" alt=""  class="img-fluid">
+            </div>
+        </div>
+        <hr width="100%" size="3" color="#000000" />
+    </div>
+</section>
+
+<section id="algorithm">
+    <div class="container">
+        <div class="row">
+            <div class="col-7 align-self-start">
+                <p class="title-dt">Logistic Regression — Логистическая регрессия</p>
+                <div class="description-dt">
+                    <p style="text-indent: 2rem;">Дерево принятий решений – это классификатор, построенный на основе решающих правил вида «если...то...», упорядоченных в древовидную иерархическую структуру. В основе работы дерева решений лежит процесс рекурсивного разбиения исходного множества объектов на подмножества, ассоциированные с предварительно заданными классами.</p> 
+                    <p style="text-indent: 2rem;">Разбиение производится с помощью решающих правил, в которых осуществляется проверка значений атрибутов по заданному условию. В качестве обучающего набора данных используется множество наблюдений, для которых предварительно задана метка класса.</p>
+                    <p style="text-indent: 2rem;">Дерево решений состоит из узлов (node), ветвей (branch) и листьев (leaf). В вершине дерева находится корневой узел, содержащий входные данные, с которого начинается построение. Далее идут внутренние узлы, каждый из которых имеет только одну входящую в него ветвь. В этих узлах осуществляется разделение входных значений на подмножества, называемые классами, в соответствии с их атрибутами. В ветвях хранятся значения атрибутов, по которым разбиваются данные. Лист представляет собой узел решения о принадлежности к классу.</p> 
+                    <p style="text-indent: 2rem;">Процесс разбиения продолжается до тех пор, пока не будет достигнут необходимый результат расщепления или критерий остановки.</p>
+                </div>
+            </div>
+            <div class="col-5 align-self-center">
+                <img src="../static/img/LR.png" alt=""  class="img-fluid">
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <ul class="social-icons">
+            <li><a href="https://vk.com/nazevg"><i class="fa fa-vk"></i></a></li>
+            <li><a href="https://www.instagram.com/nazevg/"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="https://github.com/hurtishka"><i class="fa fa-github"></i></a></li>
+        </ul>
+        <p id="phone" class="footer-text">Тел.: +7 (982) 105 37-63</p>
+        <p id="email" class="footer-text">Email: nazarenko674777@gmail.com</p>
+        <p id="copyright" class="footer-text">© 2021, Evgenii Nazarenko</p>
+    </div>
+</footer>
+{% endblock %}
