@@ -56,7 +56,7 @@ section {
     text-align: center;
 }
 .title-ab {
-    margin-top: 2rem;
+    padding-top: 2rem;
     color: black;
     font-size: 6rem;
     font-weight: 900;
@@ -71,7 +71,7 @@ section {
     padding:2rem 0 2rem 0;
     font-size: 2rem;
     color: black;
-    margin: 2rem auto 5rem auto;
+    margin: 2rem auto 1rem auto;
 }
 .row {
     margin-top: 3rem;
@@ -89,7 +89,6 @@ footer {
     justify-content: center;
     flex-wrap: wrap;
     list-style: none;
-    margin: 2rem;
     padding-top: 3rem;
 }
 .social-icons a {
@@ -97,12 +96,12 @@ footer {
     width: 6rem;
     height: 6rem;
     border-radius: 100%;
-    background: #efefef;
+    background: #00631C;
     position: relative;
     margin: 0.5rem;
     text-align: center;
     font-size: 3.2rem;
-    color: #337AB7;
+    color: black;
     transition: 0.5s;
 }
 .social-icons a img {
@@ -123,7 +122,7 @@ footer {
     content: '';
     display: block;
     position: absolute;
-    background: #BFE2FF;
+    background: #00631C;
     border-radius: 100%;
     width: 0;
     height: 0;
@@ -135,7 +134,7 @@ footer {
     width: 6rem;
     height: 6rem;
     margin-left: -3rem;
-    background: #337AB7;
+    background: green;
 }
 #copyright {
     padding-bottom: 3rem;
@@ -143,7 +142,7 @@ footer {
 
 /*ALGO*/
 #algo {
-    background-color: #fff;
+    background-color: white;
 }
 
 #content-algo {
