@@ -20,7 +20,9 @@ body {
     font-size: large;
 }
 
-
+section {
+    height: 120vh;
+}
 
 .collapse {
     justify-content: flex-end;
@@ -112,34 +114,6 @@ footer {
 }
 
 
-/*ALGORITHMS*/
-#algorithm-wl, #algorithm-dt, #algorithm-knn, #algorithm-nb, #algorithm-svm, #algorithm-lr {
-    background-color: white;
-    height:fit-content;
-}
-
-.title-dt {
-    color: black;
-    font-size: 2.5rem;
-    font-weight: 900;
-    padding-top: 6rem;
-}
-
-.description-dt {
-    max-width: 60rem;
-    font-size: 1.5rem;
-    color: black;
-    text-align: justify;
-}
-
-.decr {
-    text-align: justify;
-}
-
-.title-small {
-    font-weight: 900;
-}
-
 /*BUTTON*/
 #button-up{
     display: none;
@@ -157,8 +131,3 @@ footer {
     cursor: pointer;
   }
 
-.btn-lg {
-    padding: .6rem 1.6rem;
-    font-size: 1.6rem;
-    border-radius: .6rem;
-  }

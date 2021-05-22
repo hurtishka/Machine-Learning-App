@@ -9,13 +9,16 @@ def main_page():
     return render_template("main_page.html")
 
 @app.route("/algorithms")
-def algorithms(algorithms_id=0):
-    return render_template("algorithms.html", algorithms_id=algorithms_id)  
+def algorithms():
+    return render_template("algorithms.html")  
 
-@app.route("/classification_train")
+@app.route("/classification", methods=['GET', 'POST'])
 def classification():
-    
-    return render_template("classification_train.html")  
+    return render_template("classification.html") 
+
+@app.route("/train", methods=['GET', 'POST'])
+def train():
+    return render_template("train.html")  
 
 if __name__ == "__main__":
     app.run(debug=True)

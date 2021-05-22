@@ -32,7 +32,7 @@ section {
 /*WELCOME*/
 #welcome {
     background-color: #00631C;
-    height: 17vh;
+    height: 15vh;
 }
 #content-welcome {
     padding-top: 3rem;
@@ -58,14 +58,14 @@ footer {
     text-align: center;
     color: rgba(255, 255, 255, 0.85);
     background-color: #00631C;
-    height:40vh;
+    height:33vh;
 }
 .social-icons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     list-style: none;
-    padding-top: 3rem;
+    padding-top: .7rem;
 }
 .social-icons a {
     display: inline-block;
@@ -112,8 +112,20 @@ footer {
     margin-left: -3rem;
     background: green;
 }
-#copyright {
-    padding-bottom: 3rem;
-}
 
-
+/*BUTTON*/
+#button-up{
+    display: none;
+    position: fixed;
+    right: 2rem;
+    bottom: 10rem;			
+    color: #000;
+    background-color: none;
+    text-align: center;
+    font-size: 3rem;
+    padding: 1.5rem;
+  }
+   
+#button-up:hover{
+    cursor: pointer;
+  }
