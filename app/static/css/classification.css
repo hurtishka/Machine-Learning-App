@@ -131,3 +131,12 @@ footer {
     cursor: pointer;
   }
 
+.title {
+    font-weight: 900;
+    font-size: 4rem;
+}
+.btn-lg {
+    padding: .6rem 1.6rem;
+    font-size: 1.6rem;
+    border-radius: .6rem;
+  }

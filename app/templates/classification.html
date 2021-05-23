@@ -12,11 +12,15 @@
 {% endblock %}
 
 {% block body %}
+<div id="loader" class="loader">
+    <div class="loader_inner"></div>
+</div>
+
 <section id="welcome">
     <div class="container">
         <nav class="navbar navbar-expand-md navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand">
+                <a class="navbar-brand" href="/">
                     <img src="/static/img/logo_new.png" alt="" class="d-inline-block align-text-center">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -42,7 +46,30 @@
         </nav>
 </section>
 
-<section></section>
+<section style="height:fit-content;">
+    <div class="container">
+        <div class="content">
+            <div class="row align-items-center">
+                <div class="col-6" style="max-width: 70rem; padding-top: 13rem; padding-bottom: 15.5rem;" >
+                    <p class="title" style="color: rgba(0, 0, 0, 1);">Классификация</p>
+                    <p class="description" style="color: rgba(0, 0, 0, 0.85);">Для начала работы загрузите файл с данными в формате CSV и выберите модель классификации</p>
+                    <form action="" method="POST" enctype=multipart/form-data class="form-classification">
+                        {{ form.csrf_token }}
+                        <p class="label">{{ form.classification_model.label() }} {{ form.classification_model() }}</p>
+                        <p class="label">{{ form.input_file() }}</p>
+                        <br>
+                        <button type="submit" class="btn btn-success btn-lg" onclick="load()">Классифицировать сетевой трафик</button>
+                        <br>
+                    </form>
+                </div>
+                <div class="col-6" style="margin-left: auto; padding-top: 7rem;">
+                    <img src="../static/img/clfnw.png" alt="" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 <footer>
     <div class="container">
