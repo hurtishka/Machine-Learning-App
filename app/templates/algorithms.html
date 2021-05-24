@@ -8,6 +8,7 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="static/css/algorithms.css">
+<link rel="shortcut icon" href="static/img/favicon.ico">
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.1/es5/tex-mml-chtml.js"></script>
 <script type="text/javascript" src="https://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
@@ -99,13 +100,13 @@
         </div>
         <div class="row text-center">
             <hr width="100%" color="#000000"/>
-            <div class="col-7 text-center" style="margin: 0 auto;">
+            <div class="col-6 text-center" style="margin: 0 auto;">
                 <p class="title-small">Плюсы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Их легко понять. В каждом узле мы можем точно увидеть, какое решение принимает наша модель. На практике мы сможем точно узнать, откуда исходят точности и ошибки, с какими видами данных модель будет справляться и как значения признаков влияют на выход. Опция визуализация в Scikit-learn является удобным инструментом, способствующим хорошему пониманию деревьев решений.</p> 
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Не требует объемной подготовки данных. Многие модели машинного обучения требуют предварительной обработки данных (например, нормализации) и нуждаются в сложных схемах регуляризации. С другой стороны, деревья решений эффективны после настройки некоторых параметров.</p> 
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Стоимость использования дерева для вывода является логарифмической от числа точек данных, используемых для обучения дерева. Это является большим преимуществом, так как большое количество данных не сильно повлияет на скорость вывода.</p> 
             </div>
-            <div class="col-5 text-center" style="margin: 0 auto;">
+            <div class="col-6 text-center" style="margin: 0 auto;">
                 <p class="title-small">Минусы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Из-за своего характера обучения деревья решений подвержены переобучению. Рекомендуется часто применять некоторые виды понижения размерности, например, PCA, чтобы дерево не создавало разбиения по большому количеству признаков.</p> 
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) По тем же причинам, что и переобучение, деревья решений также уязвимы к смещению классов, которые есть в большинстве наборов данных. Хорошим решением в данном случае является периодическая балансировка классов (веса класса, выборка, определенная функция потерь).</p> 
@@ -135,7 +136,7 @@
         </div>
         <div class="row text-center">
             <hr width="100%" color="#000000"/>
-            <div class="col-7 text-center" style="margin: 0 auto;">
+            <div class="col-6 text-center" style="margin: 0 auto;">
                 <p class="title-small">Плюсы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Алгоритм прост и его легко понять</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Тривиальное обучение модели на новых тренировочных данных</p>
@@ -143,7 +144,7 @@
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Легко добавить больше данных в множество данных</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Модель принимает только 2 параметра: К и метрика расстояния, которой вы хотели бы воспользоваться (обычно это Евклидово расстояние)</p>
             </div>
-            <div class="col-5 text-center" style="margin: 0 auto;">
+            <div class="col-6 text-center" style="margin: 0 auto;">
                 <p class="title-small">Минусы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Высокая стоимость вычисления, т.к. вам требуется обработать весь объем данных</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Работает не так хорошо с категорическими параметрами</p>
@@ -173,7 +174,7 @@
         </div>
         <div class="row text-center">
             <hr width="100%" color="#000000"/>
-            <div class="col-7 text-center" style="margin: 0 auto;">
+            <div class="col-6 text-center" style="margin: 0 auto;">
                 <p class="title-small">Плюсы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Наивная байесовская классификация легко реализуема и быстра.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Он будет сходиться быстрее, чем дискриминационные модели, такие как логистическая регрессия.</p>
@@ -181,7 +182,7 @@
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Он может делать вероятностные прогнозы и может обрабатывать как непрерывные, так и дискретные данные.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Наивный байесовский алгоритм классификации можно использовать как для бинарных, так и для мультиклассовых задач классификации.</p>
             </div>
-            <div class="col-5 text-center" style="margin: 0 auto;">
+            <div class="col-6 text-center" style="margin: 0 auto;">
                 <p class="title-small">Минусы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Одним из наиболее важных минусов наивной байесовской классификации является ее сильная независимость, поскольку в реальной жизни практически невозможно иметь набор функций, которые полностью независимы друг от друга.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Еще одна проблема, связанная с наивной байесовской классификацией, заключается в ее «нулевой частоте», которая означает, что если категориальная переменная имеет категорию, но не наблюдается в наборе обучающих данных, то наивная байесовская модель присваивает ей нулевую вероятность, и она не сможет прогнозирование.</p>
@@ -209,14 +210,14 @@
         </div>
         <div class="row">
             <hr width="100%" color="#000000"/>
-            <div class="col-7 text-center" style="margin: 0 auto;">
+            <div class="col-6 text-center" style="margin: 0 auto;">
                 <p class="title-small">Плюсы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Эффективно, когда количество функций больше, чем обучающие примеры.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Лучший алгоритм, когда классы отделимы.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) На гиперплоскость влияют только опорные векторы, поэтому выбросы оказывают меньшее влияние.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Подходит для экстремального случая двоичной классификации.</p>
             </div>
-            <div class="col-5 text-center " style="margin: 0 auto;">
+            <div class="col-6 text-center " style="margin: 0 auto;">
                 <p class="title-small">Минусы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Для больших наборов данных требуется много времени для обработки.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Не работает хорошо в случае перекрывающихся классов.</p>
@@ -248,14 +249,14 @@
         </div>
         <div class="row text-center">
             <hr width="100%" color="#000000"/>
-            <div class="col-7 text-center" style="margin: 0 auto">
+            <div class="col-6 text-center" style="margin: 0 auto">
                 <p class="title-small">Плюсы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Один из простейших алгоритмов машинного обучения обеспечивает большую эффективность.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Низкая дисперсия.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Может также использоваться для извлечения объектов.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Логистические модели могут быть легко обновлены новыми данными с использованием стохастического градиентного спуска.</p>
             </div>
-            <div class="col-5 text-center" style="margin: 0 auto;">
+            <div class="col-6 text-center" style="margin: 0 auto;">
                 <p class="title-small">Минусы</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Не очень хорошо обрабатывает большое количество категориальных переменных.</p>
                     <p class="decr" style="text-indent: 2rem;">\(\bullet\) Требуется преобразование нелинейных функций.</p>

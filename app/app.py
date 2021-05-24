@@ -4,7 +4,7 @@ from forms import ClassificationForm
 from classification import get_files_from_root, allowed_file, predict
 import os
 from werkzeug.utils import secure_filename
-UPLOAD_FOLDER = 'dataset/'
+UPLOAD_FOLDER = './dataset/'
 ALLOWED_EXTENSIONS = set(['csv'])
 
 app = Flask(__name__)
@@ -34,13 +34,20 @@ def classification():
     length = 0
     if form.validate_on_submit():
         input_file = request.files['input_file']
+        print("1")
         if input_file and allowed_file(input_file.filename, ALLOWED_EXTENSIONS):
             filename = secure_filename(input_file.filename)
+            print(filename)
             input_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         modelname = form.classification_model.data
-        file = f'data/{filename}'
+        print("3")
+        file = f'./dataset/{filename}'
         try:
-            data, predictions = predict(f'models/{modelname}', file)
+            print("4")
+            print(file)
+            print(f'./models/{modelname}')
+            data, predictions = predict(f'./models/{modelname}', file)
+            print("5")
             length = len(predictions)
             success = True
         except:

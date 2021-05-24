@@ -1,6 +1,5 @@
 import pandas as pd
 from os import listdir
-
 from pandas import read_csv
 from pickle import load
 from sklearn.preprocessing import LabelEncoder
@@ -29,11 +28,15 @@ def load_model(path):
 
 def predict(model_path, file):
     model = load_model(model_path)
+    print("7")
     data = read_csv(file)
-    enconded_data = label_encoding(data)
-    
-    prediction = model.predict(enconded_data)
-    return data, prediction
+    print("8")
+    #enconded_data = label_encoding(data)
+    print("9")
+    df = data.drop("Label", axis=True)
+    predictions = model.predict(df)
+    print("10")
+    return data, predictions
 
 def get_files_from_root(folder_name, file_extension):
     files = listdir(folder_name)

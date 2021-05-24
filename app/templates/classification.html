@@ -8,6 +8,7 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="static/css/classification.css">
+<link rel="shortcut icon" href="static/img/favicon.ico">
 <script type="text/javascript" src="https://yastatic.net/jquery/2.1.3/jquery.min.js"></script>
 {% endblock %}
 
@@ -69,7 +70,44 @@
         </div>
     </div>
 </section>
+{% if success or error_found %}
+        <style>.loader {
+            display: none;
+        }</style>
+        <section id="results" class="results-section text-center" style="height:fit-content;">
+            <div class="container" style="padding-bottom: 5rem;">
+                <caption><b style="font-size: 3rem; padding-bottom: 2rem;">Результат классификации</b></caption>
+                <table class="classification_table">
+                    <tr class="predict_head">
+                        <th>№</th>
+                        <th style="padding-right: 1.2rem;">Destination Port</th>
+                        <th style="padding-right: 1.2rem;">Flow Duration</th>
+                        <th style="padding-right: 1.2rem;">Total Length of Fwd Packets</th>
+                        <th style="padding-right: 0.5rem;">Total Length of Bwd Packets</th>
+                        <th style="padding-right: 0.5rem;">Flow Bytes/s</th>
+                        <th style="padding-right: 0.5rem;">Flow Packets/s</th>
 
+                    </tr>
+                    {% for i in range(0, length) %}
+                        <tr class="predict">
+                            <td style="margin-right: 0.5rem;">{{i+1}}</td>
+                            <td style="margin-right: 0.5rem;">{{data[['Destination Port']].iloc[i].values[0]}}</td>
+                            <td style="margin-right: 0.5rem;">{{data[['Flow Duration']].iloc[i].values[0]}}</td>
+                            <td style="margin-right: 0.5rem;">{{data[['Total Length of Fwd Packets']].iloc[i].values[0]}}</td>
+                            <td style="margin-right: 0.5rem;">{{data[['Total Length of Bwd Packets']].iloc[i].values[0]}}</td>
+                            <td style="margin-right: 0.5rem;">{{data[['Flow Bytes/s']].iloc[i].values[0]}}</td>
+                            <td style="margin-right: 0.5rem;">{{data[['Flow Packets/s']].iloc[i].values[0]}}</td>
+                            {% if predictions[i] == 1 %}
+                                <td style="color: red;">Bad traffic</td>
+                            {% else %}
+                                <td style="color: green;">Okay</td>
+                            {% endif %}
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+    </section>
+{% endif %}
 
 <footer>
     <div class="container">
