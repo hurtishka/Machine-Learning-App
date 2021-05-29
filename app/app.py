@@ -1,9 +1,10 @@
 from flask import Flask, render_template, request
 from flask_bs4 import Bootstrap
 from forms import ClassificationForm
-from classification import get_files_from_root, allowed_file, predict
+from classification import get_files, allowed_file, predict
 import os
 from werkzeug.utils import secure_filename
+import pandas as pd
 UPLOAD_FOLDER = './dataset/'
 ALLOWED_EXTENSIONS = set(['csv'])
 
@@ -25,41 +26,60 @@ def algorithms():
 @app.route("/classification", methods=['GET', 'POST'])
 def classification():
     form = ClassificationForm()
-    models = get_files_from_root('./models', '.sav')
+    models = get_files('./models', '.sav')
     form.classification_model.choices=models
     data = []
     predictions = []
     success = False
     error_found = False
+    error = False
+    check = False
     length = 0
+    length_trgt = 0
     if form.validate_on_submit():
         input_file = request.files['input_file']
-        print("1")
         if input_file and allowed_file(input_file.filename, ALLOWED_EXTENSIONS):
             filename = secure_filename(input_file.filename)
-            print(filename)
             input_file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         modelname = form.classification_model.data
-        print("3")
-        file = f'./dataset/{filename}'
-        try:
-            print("4")
-            print(file)
-            print(f'./models/{modelname}')
-            data, predictions = predict(f'./models/{modelname}', file)
-            print("5")
-            length = len(predictions)
-            success = True
-        except:
-            error_found = True
-            return 'Something goes wrong! Try again', 400
+        file = f'./dataset/{filename}' 
+        length_trgt = len(pd.read_csv(file)["Label"].unique())
+        if modelname.endswith('clf.sav') and length_trgt > 2:
+            error = True
+            return render_template("classification.html",
+            form=form,
+            data=data,
+            error=error)
+        elif modelname.endswith('rgr.sav') and length_trgt == 2:
+            try:
+                check = True
+                data, predictions = predict(f'./models/{modelname}', file, check)
+                length = len(predictions)
+                success = True
+            except:
+                error_found = True
+                error = False
+                return 'Something goes wrong! Try again', 400
+        else:
+            try:
+                check = False
+                data, predictions = predict(f'./models/{modelname}', file, check)
+                length = len(predictions)
+                success = True
+            except:
+                error_found = True
+                error = False
+                return 'Something goes wrong! Try again', 400
     return render_template("classification.html",
         form=form, 
         data=data,
         predictions=predictions, 
         length=length,
         success=success,
-        error_found=error_found) 
+        error_found=error_found,
+        length_trgt=length_trgt,
+        error=error,
+        check=check) 
 
 @app.route("/train", methods=['GET', 'POST'])
 def train():

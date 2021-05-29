@@ -54,6 +54,7 @@
                 <div class="col-6" style="max-width: 70rem; padding-top: 13rem; padding-bottom: 15.5rem;" >
                     <p class="title" style="color: rgba(0, 0, 0, 1);">Классификация</p>
                     <p class="description" style="color: rgba(0, 0, 0, 0.85);">Для начала работы загрузите файл с данными в формате CSV и выберите модель классификации</p>
+                    {% if error == False %}
                     <form action="" method="POST" enctype=multipart/form-data class="form-classification">
                         {{ form.csrf_token }}
                         <p class="label">{{ form.classification_model.label() }} {{ form.classification_model() }}</p>
@@ -62,6 +63,17 @@
                         <button type="submit" class="btn btn-success btn-lg" onclick="load()">Классифицировать сетевой трафик</button>
                         <br>
                     </form>
+                    {% else %}
+                    <form action="" method="POST" enctype=multipart/form-data class="form-classification">
+                        {{ form.csrf_token }}
+                        <p class="label">{{ form.classification_model.label() }} {{ form.classification_model() }}</p>
+                        <p class="label">{{ form.input_file() }}</p>
+                        <p class="label" style="font-size: 2rem; color:darkred">Модель классификации не подходит для регрессии! Выберите набор данных заново!</p>
+                        <br>
+                        <button type="submit" class="btn btn-success btn-lg" onclick="load()">Классифицировать сетевой трафик</button>
+                        <br>
+                    </form>
+                    {% endif %}
                 </div>
                 <div class="col-6" style="margin-left: auto; padding-top: 7rem;">
                     <img src="../static/img/clfnw.png" alt="" class="img-fluid">
@@ -75,32 +87,38 @@
             display: none;
         }</style>
         <section id="results" class="results-section text-center" style="height:fit-content;">
-            <div class="container" style="padding-bottom: 5rem;">
-                <caption><b style="font-size: 3rem; padding-bottom: 2rem;">Результат классификации</b></caption>
-                <table class="classification_table">
+            <div class="container table-responsive" style="padding-bottom: 4rem;">
+                <caption><b style="font-size: 3rem;">Результат классификации</b></caption>
+                <table class="classification_table col-12">
                     <tr class="predict_head">
-                        <th>№</th>
-                        <th style="padding-right: 1.2rem;">Destination Port</th>
-                        <th style="padding-right: 1.2rem;">Flow Duration</th>
-                        <th style="padding-right: 1.2rem;">Total Length of Fwd Packets</th>
-                        <th style="padding-right: 0.5rem;">Total Length of Bwd Packets</th>
-                        <th style="padding-right: 0.5rem;">Flow Bytes/s</th>
-                        <th style="padding-right: 0.5rem;">Flow Packets/s</th>
+                        <th>№ потока</th>
+                        <th style="padding-right: 1.2rem;">Номер порта</th>
+                        <th style="padding-right: 1.2rem;">Время работы потока, мс</th>
+                        <th style="padding-right: 0.5rem;">Скорость потока, Бт/с</th>
+                        <th style="padding-right: 0.5rem;">Скорость потока, пакеты/с</th>
 
                     </tr>
                     {% for i in range(0, length) %}
                         <tr class="predict">
-                            <td style="margin-right: 0.5rem;">{{i+1}}</td>
-                            <td style="margin-right: 0.5rem;">{{data[['Destination Port']].iloc[i].values[0]}}</td>
-                            <td style="margin-right: 0.5rem;">{{data[['Flow Duration']].iloc[i].values[0]}}</td>
-                            <td style="margin-right: 0.5rem;">{{data[['Total Length of Fwd Packets']].iloc[i].values[0]}}</td>
-                            <td style="margin-right: 0.5rem;">{{data[['Total Length of Bwd Packets']].iloc[i].values[0]}}</td>
-                            <td style="margin-right: 0.5rem;">{{data[['Flow Bytes/s']].iloc[i].values[0]}}</td>
-                            <td style="margin-right: 0.5rem;">{{data[['Flow Packets/s']].iloc[i].values[0]}}</td>
-                            {% if predictions[i] == 1 %}
-                                <td style="color: red;">Bad traffic</td>
-                            {% else %}
-                                <td style="color: green;">Okay</td>
+                            <td>{{i+1}}</td>
+                            <td >{{data[['Destination Port']].iloc[i].values[0]}}</td>
+                            <td>{{data[['Flow Duration']].iloc[i].values[0]}}</td>
+                            <td>{{data[['Flow Bytes/s']].iloc[i].values[0]}}</td>
+                            <td>{{data[['Flow Packets/s']].iloc[i].values[0]}}</td>
+                            {% if length_trgt == 2 %}
+                                {% if predictions[i] == 1 %}
+                                    <td style="color: red;">DDoS attack</td>
+                                {% else %}
+                                    <td style="color: green;">Benign</td>
+                                {% endif %}
+                            {% elif length_trgt == 3 %}
+                                {% if predictions[i] == 1 %}
+                                    <td style="color: orangered;">DoS attacks-Hulk</td>
+                                {% elif predictions[i] == 2 %}
+                                    <td style="color: red;">DoS attacks-Hoic</td>
+                                {% else %}
+                                    <td style="color: green;">Benign</td>
+                                {% endif %}
                             {% endif %}
                         </tr>
                     {% endfor %}
