@@ -129,3 +129,8 @@ footer {
 #button-up:hover{
     cursor: pointer;
   }
+.btn-lg {
+    padding: .8rem 1.8rem;
+    font-size: 1.8rem;
+    border-radius: .8rem;
+  }

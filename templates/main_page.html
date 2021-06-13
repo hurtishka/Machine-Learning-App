@@ -20,10 +20,10 @@
                 <a class="navbar-brand" href="/">
                     <img src="/static/img/logo_new.png" alt="" class="d-inline-block align-text-center">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse">
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="#about">О проекте</a>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="col-12 text-center" style="padding: 0;">
                     <p class="title-wl">MachineLearningApp</p>
-                    <p class="description-wl">Классификация сетевого трафика с использованием методов машинного обучения с учителем</p>
+                    <p class="description-wl" style="padding-bottom: 3.7rem;">Классификация сетевого трафика с использованием методов машинного обучения с учителем</p>
                     <a href="#about"><button type="button" class="btn btn-success btn-lg">Подробнее</button></a>
                 </div>
             </div>
@@ -56,7 +56,7 @@
     </div>
 </section>
 
-<section id="about" style="padding-top: 3rem; height:fit-content;">
+<section id="about">
     <div class="container">
         <p class="title-ab">О проекте</p>
         <p class="description-ab">Программное обеспечение для классификации сетевого трафика,
@@ -64,20 +64,20 @@
                 "Программная инженерия" в Южно-Уральском государственном университете
         </p>
         <div class="row" style="padding-top: 3rem;">
-            <div class="col-4">
+            <div class="col-12 col-md-4 pb-5">
                 <img src="../static/img/learning.png" alt=""  width="50" height="50" class="img-fluid mx-auto">
                 <p class="title-small">Применение высокоэффективных алгоритмов</p>
                 В данном веб-приложении Вы можете ознакомиться с принципами работы высокоэффективных алгоритмов машинного обучения c учителем.
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4 pb-5">
                 <img src="../static/img/params.png" alt=""  width="50" height="50" class="img-fluid mx-auto">
                 <p class="title-small">Широкий выбор параметров алгоритмов</p>
                 Данное веб-приложение предлагает широкий выбор параметров алгоритмов машинного обучения для более гибкой настройки своей будущей модели.
             </div>
-            <div class="col-4">
+            <div class="col-12 col-md-4 pb-5">
                 <img src="../static/img/machine-learning.png" alt=""  width="50" height="50" class="img-fluid mx-auto">
                 <p class="title-small">Возможность создания своей модели</p>
-                Пользователь, выбрав алгоритм и параметры к нему, может обучить и сохранить свою собственную модель, а также испытать ее на наборе данных.
+                Пользователь, выбрав алгоритм и параметры к нему, может обучить и сохранить свою собственную модель.
             </div>
         </div>
       </div>
@@ -92,7 +92,7 @@
                 <a href="classification"><button type="button" class="btn btn-info btn-lg">Классификация</button></a>
                 <a href="learning"><button type="button" class="btn btn-info btn-lg">Обучение</button></a>
             </div>
-            <img src="../static/img/Startup_PNG.png" alt="" width="380" height="120" class="img-fluid rounded float-start">
+            <img src="../static/img/Startup_PNG.png" alt="" width="380" height="120" class="clf img-fluid rounded float-start">
         </div>
     </div>
 </section>
@@ -112,7 +112,7 @@
     </div>
 </section>
 
-<footer>
+<footer style="padding-bottom: 3rem;">
     <div class="container">
         <ul class="social-icons">
             <li><a href="https://vk.com/nazevg"><i class="fa fa-vk"></i></a></li>
@@ -128,6 +128,16 @@
 <div id="button-up">
     <i class="fa fa-chevron-up"></i>	
 </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+<script>
+    $('.modal').on('shown.bs.modal', function () {
+        $(this).find('[autofocus]').focus();
+    });
+</script>
 <script>
     $(document).ready(function() { 
       var button = $('#button-up');	

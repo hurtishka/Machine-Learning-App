@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import SelectField, FileField, DecimalField, StringField
+from wtforms.fields.core import FloatField
 from wtforms.fields.simple import SubmitField
 from wtforms.validators import DataRequired
 
@@ -32,7 +33,7 @@ class LearningForm(FlaskForm):
         label='Выберите критерий',
     )
     n_neighbors = DecimalField(
-        label='Введите ',
+        label='Введите количество соседей',
     )
 
     algorithm_knn = SelectField(
@@ -50,7 +51,7 @@ class LearningForm(FlaskForm):
         label='Выберите максимальное количество итераций',
     )
 
-    var_smoothing = DecimalField(
+    var_smoothing = FloatField(
         label='Выберите атрибут var_smoothing',
     )
 
@@ -69,7 +70,8 @@ class LearningForm(FlaskForm):
     input_file = FileField(
         label='Выберите набор данных',
     )
-
+    
+    choose_algo = SubmitField(label=('Вывести параметры'))
     submit = SubmitField(label=('Обучить модель'))
 
-    choose_algo = SubmitField(label=('Вывести параметры'))
+    

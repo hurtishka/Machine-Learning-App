@@ -1,17 +1,19 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from flask_bs4 import Bootstrap
 from forms import ClassificationForm, LearningForm
-from classification_and_fitting import get_files, predict, allowed_file, MLA
+from classification import get_files, predict, allowed_file
+from fitting import MLA
 import os
 from werkzeug.utils import secure_filename
 import pandas as pd
 
+UPLOAD_FOLDER = '/dataset/classification/'
 ALLOWED_EXTENSIONS = {'csv'}
 ALGORITHMS = ['DecisionTreeClassifier', 'DecisionTreeRegressor', 'KNeighborsClassifier',
 'KNeighborsRegressor', 'SVMClassifier', 'SVMRegressor', 'NaiveBayes', 'LogisticRegression']
 CRITERION_CLF = ['gini', 'entropy']
 CRITERION_RGR = ['mae', 'friedman_mse', 'mse', 'poisson']
-KERNEL = ['poly', 'linear', 'rbf', 'sigmoid', 'precomputed']
+KERNEL = ['linear', 'rbf', 'sigmoid', 'precomputed']
 PENALTY = ['l1', 'l2', 'elasticnet', 'none']
 SOLVER = ['newton-cg', 'lbfgs', 'liblinear', 'sag', 'saga']
 ALGORITHM_KNN = ['auto', 'ball_tree', 'kd_tree', 'brute']
@@ -21,6 +23,7 @@ bootstrap = Bootstrap(app)
 
 SECRET_KEY = os.urandom(32)
 app.config['SECRET_KEY'] = SECRET_KEY
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 global algo
 algo = ""
@@ -101,7 +104,7 @@ def classification():
 
 @app.route("/learning", methods=['GET', 'POST'])
 def learning():
-    form = LearningForm()
+    form = LearningForm(prefix='form')
     success = False
     form.algorithms.choices = ALGORITHMS
     form.criterion_clf.choices = CRITERION_CLF
@@ -113,49 +116,52 @@ def learning():
     duration_of_fit = 0
     metric = 0
     is_clf = True
-    if form.validate_on_submit():
-        if form.choose_algo.data:
-            print("zhopa")
-            global algo
-            algo = form.algorithms.data 
-            print("FFFF: ", algo)      
-        elif form.submit.data:
-            if algo == 'DecisionTreeClassifier':
-                max_depth = form.max_depth.data
-                criterion_clf = form.criterion_clf.data
-            elif algo == 'DecisionTreeRegressor':
-                max_depth = form.max_depth.data
-                criterion_rgr = form.criterion_rgr.data
-            elif algo == 'KNeighborsClassifier' or algo == 'KNeighborsRegressor':
-                n_neighbors = form.n_neighbors.data
-                algorithm_knn = form.algorithm_knn.data
-            elif algo == 'SVMClassifier' or algo == 'SVMRegressor':
-                kernel = form.kernel.data
-                c_svm = form.c.data
-                max_iter = form.max_iter.data
-            elif algo == 'NaiveBayes':
-                var_smoothing = form.var_smoothing.data
-            elif algo == 'LogisticRegression':
-                penalty = form.penalty.data
-                solver = form.solver.data
-            else:
-                print ("Trouble with choice algorithm")
-            label_name = form.label_name.data
-            input_file = request.files['input_file']
-            if input_file and allowed_file(input_file.filename, ALLOWED_EXTENSIONS):
-                filename = secure_filename(input_file.filename)
-                input_file.save(os.path.join(filename))
-            file = f'./dataset/{filename}' 
+    criterion_clf = ""
+    criterion_rgr = ""
+    algorithm_knn = ""
+    penalty = ""
+    solver = ""
+    kernel = ""
+    max_depth = 0
+    n_neighbors = 5
+    c = 0
+    max_iter = 0
+    var_smoothing = 1e-15
 
-            try:
-                metric, duration_of_fit, is_clf = MLA(algo, file, label_name, duration_of_fit, max_depth, criterion_clf,
-                criterion_rgr, n_neighbors, algorithm_knn, kernel, c_svm, max_iter, var_smoothing, penalty, solver)
-                success = True
-                print(metric)
-            except Exception as e:
-                return str(e), 400
+    if form.choose_algo.data:
+        global algo
+        algo = form.algorithms.data      
+    elif form.submit.data:
+        if algo == 'DecisionTreeClassifier':
+            max_depth = form.max_depth.data
+            criterion_clf = form.criterion_clf.data
+        elif algo == 'DecisionTreeRegressor':
+            max_depth = form.max_depth.data
+            criterion_rgr = form.criterion_rgr.data
+        elif algo == 'KNeighborsClassifier' or algo == 'KNeighborsRegressor':
+            n_neighbors = form.n_neighbors.data
+            algorithm_knn = form.algorithm_knn.data
+        elif algo == 'SVMClassifier' or algo == 'SVMRegressor':
+            kernel = form.kernel.data
+            c = form.c.data
+            max_iter = form.max_iter.data
+        elif algo == 'NaiveBayes':
+            var_smoothing = form.var_smoothing.data
+        elif algo == 'LogisticRegression':
+            penalty = form.penalty.data
+            solver = form.solver.data
         else:
-            print("hui")
+            print ("Trouble with choice algorithm")
+        label_name = form.label_name.data
+        filename = secure_filename(form.input_file.data.filename)
+        form.input_file.data.save(os.path.join(filename))
+        file = f'./dataset/{filename}' 
+        try:
+            metric, duration_of_fit, is_clf = MLA(algo, file, label_name, duration_of_fit, max_depth, criterion_clf,
+            criterion_rgr, int(n_neighbors), algorithm_knn, kernel, c, max_iter, var_smoothing, penalty, solver)
+            success = True
+        except Exception as e:
+            return str(e), 400
     else:
         print (form.errors)
 
@@ -167,6 +173,12 @@ def learning():
         duration_of_fit=duration_of_fit,
         is_clf=is_clf,
         algo=algo)  
+
+@app.route("/dataset/classification/<path:filename>", methods=['GET', 'POST'])
+def download(filename):
+    directory = './dataset/classification/'
+    return send_from_directory(directory, filename)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -24,10 +24,10 @@
                 <a class="navbar-brand" href="/">
                     <img src="/static/img/logo_new.png" alt="" class="d-inline-block align-text-center">
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse">
+                <div id="navbarSupportedContent" class="collapse navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                             <a class="nav-link" href="/">На главную</a>
@@ -80,7 +80,7 @@
                     {% endif %}
                 </div>
                 <div class="col-6" style="margin-left: auto; padding-top: 7rem;">
-                    <img src="../static/img/clfnw.png" alt="" class="img-fluid">
+                    <img src="../static/img/clfnw.png" alt="" class="clf img-fluid">
                 </div>
             </div>
         </div>
@@ -101,7 +101,7 @@
                         <th style="padding-right: 0.5rem;">Скорость потока, пакеты/с</th>
                         <th style="padding-right: 0.5rem;">Предсказание</th>
                     </tr>
-                    {% for i in range(0, length) %}
+                    {% for i in range(0, 15) %}
                         <tr class="predict">
                             <td>{{i+1}}</td>
                             <td >{{data[['Destination Port']].iloc[i].values[0]}}</td>
@@ -116,7 +116,7 @@
                                 {% endif %}
                             {% elif length_trgt == 3 %}
                                 {% if predictions[i] == 1 %}
-                                    <td style="color: orangered;">DoS attacks-Hulk</td>
+                                    <td style="color: purple;">DoS attacks-Hulk</td>
                                 {% elif predictions[i] == 2 %}
                                     <td style="color: red;">DoS attacks-Hoic</td>
                                 {% else %}
@@ -126,11 +126,12 @@
                         </tr>
                     {% endfor %}
                 </table>
+                <a class="btn btn-success btn-lg" style="margin-top: 2rem; margin-bottom: 2rem;" href="dataset/classification/results.csv" download="results.csv">Скачать результат</a>
             </div>
     </section>
 {% endif %}
 
-<footer>
+<footer class="sticky-bottom" style="height: fit-content; padding-bottom: 2rem;">
     <div class="container">
         <ul class="social-icons">
             <li><a href="https://vk.com/nazevg"><i class="fa fa-vk"></i></a></li>
@@ -146,6 +147,16 @@
 <div id="button-up">
     <i class="fa fa-chevron-up"></i>	
 </div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.1/umd/popper.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/js/bootstrap.min.js"></script>
+<script>
+    $('.modal').on('shown.bs.modal', function () {
+        $(this).find('[autofocus]').focus();
+    });
+</script>
 <script>
     $(document).ready(function() { 
       var button = $('#button-up');	

@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@383&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 383;
+    font-size: large;
+}
+
+
+
+.collapse {
+    justify-content: flex-end;
+}
+
+
+/*WELCOME*/
+#welcome {
+    background-color: #00631C;
+    height: fit-content;
+}
+#content-welcome {
+    padding-top: 3rem;
+    text-align: center;
+}
+.title-wl {
+    color: white;
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+.description-wl {
+    max-width: 60rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color: white;
+    margin:0 auto;
+}
+
+/*FOOTER*/
+
+footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    background-color: #00631C;
+    height:33vh;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-top: .7rem;
+}
+.social-icons a {
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    background: #00631C;
+    position: relative;
+    margin: 0.5rem;
+    text-align: center;
+    font-size: 3.2rem;
+    color: black;
+    transition: 0.5s;
+}
+.social-icons a img {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-top: 1.4rem;
+}
+.social-icons a i,
+.social-icons a img {
+    z-index:2;
+    position: relative;
+    line-height: 6rem;
+}
+.social-icons a:hover {
+    color: #fff;
+}
+.social-icons a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: #00631C;
+    border-radius: 100%;
+    width: 0;
+    height: 0;
+    transition: 0.3s;
+    top: 0;
+    left: 50%;
+}
+.social-icons a:hover:after {
+    width: 6rem;
+    height: 6rem;
+    margin-left: -3rem;
+    background: green;
+}
+
+
+/*ALGORITHMS*/
+#algorithm-wl, #algorithm-dt, #algorithm-knn, #algorithm-nb, #algorithm-svm, #algorithm-lr {
+    background-color: white;
+    height:fit-content;
+}
+
+.title-dt {
+    color: black;
+    font-size: 2.5rem;
+    font-weight: 900;
+    padding-top: 6rem;
+}
+
+.description-dt {
+    max-width: 60rem;
+    font-size: 1.5rem;
+    color: black;
+    text-align: justify;
+}
+
+.decr {
+    text-align: justify;
+}
+
+.title-small {
+    font-weight: 900;
+}
+
+/*BUTTON*/
+#button-up{
+    display: none;
+    position: fixed;
+    right: 2rem;
+    bottom: 10rem;			
+    color: #000;
+    background-color: none;
+    text-align: center;
+    font-size: 3rem;
+    padding: 1.5rem;
+  }
+   
+#button-up:hover{
+    cursor: pointer;
+  }
+
+.btn-lg {
+    padding: .6rem 1.6rem;
+    font-size: 1.6rem;
+    border-radius: .6rem;
+  }
+  

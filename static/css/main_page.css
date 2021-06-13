@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@383&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 62.5%;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 383;
+    font-size: large;
+}
+
+section {
+    height: 100vh;
+}
+
+.collapse {
+    justify-content: flex-end;
+}
+
+
+/*WELCOME*/
+#welcome {
+    background-color: #00631C;
+}
+#content-welcome {
+    padding-top: 3rem;
+    text-align: center;
+}
+.title-wl {
+    color: white;
+    font-size: 5rem;
+    font-weight: 900;
+}
+
+.description-wl {
+    max-width: 60rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color: white;
+    margin:0 auto;
+}
+/*ABOUT*/
+#about {
+    background: white;
+    text-align: center;
+}
+.title-ab {
+    padding-top: 2rem;
+    color: black;
+    font-size: 6rem;
+    font-weight: 900;
+}
+.title-small {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.description-ab {
+    max-width: 70rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color: black;
+    margin: 2rem auto 1rem auto;
+}
+.row {
+    margin-top: 3rem;
+}
+/*FOOTER*/
+
+footer {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    background-color: #00631C;
+    height:33vh;
+}
+.social-icons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-top: .7rem;
+
+}
+.social-icons a {
+    display: inline-block;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 100%;
+    background: #00631C;
+    position: relative;
+    margin: 0.5rem;
+    text-align: center;
+    font-size: 3.2rem;
+    color: black;
+    transition: 0.5s;
+}
+.social-icons a img {
+    width: 3.2rem;
+    height: 3.2rem;
+    margin-top: 1.4rem;
+}
+.social-icons a i,
+.social-icons a img {
+    z-index:2;
+    position: relative;
+    line-height: 6rem;
+}
+.social-icons a:hover {
+    color: #fff;
+}
+.social-icons a:after {
+    content: '';
+    display: block;
+    position: absolute;
+    background: #00631C;
+    border-radius: 100%;
+    width: 0;
+    height: 0;
+    transition: 0.3s;
+    top: 0;
+    left: 50%;
+}
+.social-icons a:hover:after {
+    width: 6rem;
+    height: 6rem;
+    margin-left: -3rem;
+    background: green;
+}
+
+/*ALGO*/
+#algo {
+    background-color: white;
+}
+
+#content-algo {
+    padding-top: 2.5rem;
+    text-align: center;
+    color:black;
+}
+.title-al {
+    color: black;
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+.description-al {
+    max-width: 60rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color: black;
+    margin:0 auto;
+}
+/**/
+#classif_train {
+    background-color: #00631C;
+}
+.content {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 25vh;
+    padding-bottom: .5rem;
+    text-align: left;
+}
+.title-ct {
+    color: white;
+    font-size: 6rem;
+    font-weight: 900;
+}
+
+.description-ct {
+    max-width: 40rem;
+    padding:2rem 0 2rem 0;
+    font-size: 2rem;
+    color:white;
+    
+}
+/*BUTTON*/
+#button-up{
+    display: none;
+    position: fixed;
+    right: 2rem;
+    bottom: 10rem;			
+    color: #000;
+    background-color: none;
+    text-align: center;
+    font-size: 3rem;
+    padding: 1.5rem;
+  }
+   
+#button-up:hover{
+    cursor: pointer;
+  }
+
+  .btn-lg {
+    padding: .8rem 1.8rem;
+    font-size: 1.8rem;
+    border-radius: .8rem;
+  }
+
+@media (min-width:769px) {
+section {
+    height: fit-content;
+    padding-bottom: 5rem;
+}
+.content {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+footer {
+    height: fit-content;
+}
+.footer-text {
+    margin: 0;
+    padding-top: 1rem;
+}
+}
+@media (min-width:601px) and (max-width:767px) {
+    section {
+        height: fit-content;
+        padding-bottom: 5rem;
+    }
+    .content {
+        padding-top: 7rem;
+        padding-bottom: 7rem;
+    }
+    footer {
+        height: fit-content;
+    }
+    .footer-text {
+        margin: 0;
+        padding-top: 1rem;
+    }
+    .clf{
+        display: none;
+    }
+    }
+
+@media (max-width:600px) {
+.clf{
+    display: none;
+}
+section {
+    height: fit-content;
+    padding-bottom: 5rem;
+}
+.content {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+}
+footer {
+    height: fit-content;
+}
+.footer-text {
+    margin: 0;
+    padding-top: 1rem;
+}
+.title-wl, .title-ct, .title-al, .title-ab{
+    font-size: 3rem;
+}
+.description-ab, .description-al, .description-ct, .description-wl {
+    font-size: 1.5rem;
+}
+.row {
+    font-size: 1.5rem;
+}
+}
