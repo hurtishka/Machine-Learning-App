@@ -1,7 +1,28 @@
 # Machine-Learning App
 ## Приложение для классификации сетевого трафика с использованием методов машинного обучения с учителем
 
-### Описание набора данных
+### Описание моделей машинного обучения
+
+**md_Decision_Tree_clf** - классификатор Decision Tree (accuracy - 0.9991)
+
+**md_k_Nearest_Neighbors_clf** - классификатор k-Nearest Neighbors (accuracy - 0.9923)
+
+**md_Logistic_Regression_clf** - классификатор Logistic Regression (accuracy - 0.9652)
+
+**md_Support_Vector_Machine_clf** - классификатор Support Vector Machine (accuracy - 0.9734)
+
+**md_Naive_Bayes_clf** - классификатор Naive Bayes (accuracy - 0.9329)
+
+**md_Decision_Tree_rgr** - регрессор Decision Tree (MAE - 0.0001)
+
+**md_k_Nearest_Neighbors_rgr** - регрессор k-Nearest Neighbors (MAE - 0.0083)
+
+**md_Support_Vector_Machine_rgr** - регрессор Support Vector Machine (MAE - 0.03)
+
+### Описание набора данных 
+
+Для обучения модели машинного обучения необходимо подготовить предобработанный набор данных в формате CSV
+
 Для классификации трафика необходимо подготовить набор данных в формате CSV со следующими признаками:
 
 **Dst Port** - номер порта
@@ -36,7 +57,7 @@
 
 **Flow Packets/s** -  скорость потока пакетов, передаваемых в секунду
 
-**Flow IAT Mean** -  
+**Flow IAT Mean** -  среднее отклонение времени между двумя потоками
 
 **Bwd IAT Total** - суммарное время между двумя пакетами, отправленными в обратном направлении
 
